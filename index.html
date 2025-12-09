@@ -3,26 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- tailwind -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Quiz App challenge</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-[linear-gradient(135deg,#cfc5ff_0%,#9ec6ff_100%)] min-h-screen flex items-center justify-center">
-    <div class="quiz-container bg-white rounded-2xl w-full max-w-[600px] shadow-[0_20px_40px_rgba(0,0,0,0.1)] overflow-hidden">
+    <div class="quiz-container bg-white rounded-2xl w-full max-w-[300px] md:max-w-[600px] shadow-[0_20px_40px_rgba(0,0,0,0.1)] overflow-hidden">
         <!-- Start Screen -->
          <div class="start-screen"> 
-            <div class="start-content py-[70px] px-[20px] text-center">
-                <h1 class=" bg-[linear-gradient(135deg,#cfc5ff_0%,#9ec6ff_100%)] bg-clip-text text-transparent text-5xl font-semibold mb-6">Welcome to the Quiz!</h1>
-                <p class="text-xl text-[#666] mb-6">Test your knowledge with 5 random questions</p>
-                <div class="btns flex items-center justify-center gap-3 text-white font-semibold pt-4 ">
-                    <button id="start-btn" class="hover:translate-y-[-6px] transition-all duration-300 uppercase bg-[linear-gradient(135deg,#cfc5ff_0%,#9ec6ff_100%)] px-5 py-3 rounded-3xl cursor-pointer text-xl ">Start Quiz</button>
-                    <button id="show-result-btn" class="hover:translate-y-[-6px] transition-all duration-300 uppercase bg-[linear-gradient(135deg,#cfc5ff_0%,#9ec6ff_100%)] px-5 py-3 rounded-3xl cursor-pointer text-xl ">Show Results</button>
+            <div class="start-content py-[15px] px-3 md:py-[70px] md:px-[20px] text-center">
+                <h1 class="bg-[linear-gradient(135deg,#cfc5ff_0%,#9ec6ff_100%)] bg-clip-text text-transparent text-3xl md:text-5xl font-semibold mb-6">Welcome to the Quiz!</h1>
+                <p class="text-base md:text-xl text-[#666] mb-6">Test your knowledge with 5 random questions</p>
+                <div class="btns flex flex-col md:flex-row items-center justify-center gap-3 text-white font-medium md:font-semibold md:pt-4 ">
+                    <button id="start-btn" class="hover:translate-y-[-6px] transition-all duration-300 uppercase bg-[linear-gradient(135deg,#cfc5ff_0%,#9ec6ff_100%)] px-2 py-1 md:px-5 md:py-3 rounded-xl md:rounded-3xl cursor-pointer md:text-xl ">Start Quiz</button>
+                    <button id="show-result-btn" class="hover:translate-y-[-6px] transition-all duration-300 uppercase bg-[linear-gradient(135deg,#cfc5ff_0%,#9ec6ff_100%)] px-2 py-1 md:px-5 md:py-3 rounded-xl md:rounded-3xl cursor-pointer md:text-xl ">Show Results</button>
                 </div>
             </div>
          </div>
          <!-- Quiz Screen -->
-        <div class="quiz-screen bg-white p-[40px] rounded-2xl hidden">
+        <div class="quiz-screen bg-white p-[20px] md:p-[40px] rounded-2xl hidden">
             <div class="quiz-header">
                 <div class="question-counter text-[#667eea] text-[22px] font-bold mb-3">
                     <span id="question-number">1</span> / <span id="total-questions">5</span>
@@ -32,7 +30,7 @@
                 </div>
             </div>
             <div class="question-container">
-                <h2 id="question-content" class="mt-5 mb-8 text-3xl font-semibold text-[#333]">Question text will appear here</h2>
+                <h2 id="question-content" class="mt-5 mb-5 md:mb-8 text-xl md:text-3xl font-semibold text-[#333]">Question text will appear here</h2>
                 <div class="options-container flex flex-col items-start gap-3 mb-7">
                     <!-- <button class="option border border-[#e0e0e0] px-5 py-4 w-full rounded-2xl text-left text-[1rem] cursor-pointer transition-all duration-300 hover:border-[#667eea] hover:translate-y-[-2px] hover:shadow-[0_5px_15px_rgba(102,126,234,0.2)]">Option A</button> -->
                     <!-- <button class="option border border-[#e0e0e0] px-5 py-4 w-full rounded-2xl text-left text-[1rem] cursor-pointer transition-all duration-300 hover:border-[#667eea] hover:translate-y-[-2px] hover:shadow-[0_5px_15px_rgba(102,126,234,0.2)]">Option B</button> -->
@@ -45,9 +43,9 @@
             </div>
         </div>
         <!-- results screen -->
-         <div class="result-screen p-[40px] hidden">
+         <div class="result-screen p-[20px] md:p-[40px] hidden">
             <div class="result-content text-center">
-                <h1 class="text-center text-4xl font-semibold text-[#333]">Quiz Complete!</h1>
+                <h1 class="text-center text-2xl md:text-4xl font-semibold text-[#333]">Quiz Complete!</h1>
                 <div class="score-display mt-6">
                     <div class="score-circle m-auto bg-[linear-gradient(135deg,#cfc5ff_0%,#9ec6ff_100%)] w-30 h-30 rounded-[50%] flex items-center justify-center">
                         <span class="text-[30px] text-white font-bold" id="score">4</span> <span class="text-[30px] text-white font-bold">/</span> <span class="text-[30px] text-white font-bold" id="total">5</span>
@@ -74,19 +72,28 @@
         <!-- User Attemps -->   
         <div class="user-attemps p-7 hidden" id="user-attemps">
             <div class="user-results-content">  
-                <h2 class="text-2xl font-bold">Your Past Attempts 📊</h2>
+                <h2 class="text-base text-center md:text-left md:text-2xl font-bold">Your Past Attempts 📊</h2>
                 <ul id="results-list" class="">
                     <li>Attempt 1 : 4 / 5</li>
                     <li>Attempt 2 : 4 / 5</li>
                     <li>Attempt 3 : 4 / 5</li>
                 </ul>
-                <div class="close-results-btn flex justify-center gap-5">
-                    <button id="close-results" class="btn btn-secondary cursor-pointer transition-all duration-300 rounded-2xl text-xl font-bold">Close</button>
-                    <button id="clear-results" class="btn btn-secondary cursor-pointer transition-all duration-300 rounded-2xl text-xl font-bold">Clear All Results</button>
+                <div class="close-results-btn flex flex-col md:flex-row justify-center gap-5">
+                    <button id="close-results" class="btn btn-secondary cursor-pointer transition-all duration-300 rounded-2xl md:text-xl font-bold">Close</button>
+                    <button id="clear-results" class="btn btn-secondary cursor-pointer transition-all duration-300 rounded-2xl md:text-xl font-bold">Clear All Results</button>
                 </div>
             </div>
         </div>
     </div>
     <script src="main.js" type="module"></script>
+    <!-- Tailwind CDN -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {},
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </body>
 </html>

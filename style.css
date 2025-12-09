@@ -24,6 +24,11 @@ body {
     color: #667eea;
     border: 2px solid #667eea;  
 }
+@media (max-width:767px) {
+    .btn-secondary {
+        padding: 10px 15px;
+    }
+}
 .btn-secondary:hover:not(:disabled) {
     background: #667eea;
     color: white;
@@ -93,4 +98,13 @@ body {
 
 .active {
     animation: fadeIn 0.5s ease-out;
+}
+
+@media (min-width: 500px) and (max-width: 767px) {
+    .quiz-container {
+        max-width: 400px;
+    }
+    .start-content {
+        padding: 20px 15px;
+    }
 }

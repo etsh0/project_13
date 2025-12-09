@@ -31,7 +31,7 @@ function showUserAnswers(userAnswers) {
     userAnswers.forEach((answer,idx) => {
         answersList.innerHTML += `
 
-        <div class="answer-item ${answer.userAnswer == answer.question.correct ? "correct":"incorrect"} p-3 rounded-xl flex items-center justify-between">
+        <div class="answer-item ${answer.userAnswer == answer.question.correct ? "correct":"incorrect"} p-3 rounded-xl flex flex-col gap-2 md:gap-0 md:flex-row items-center justify-between">
             <div class="answer-text">
                 <strong>Q${idx + 1}:</strong>${answer.question.question}<br>
                 <small>Your answer: ${answer.question.options[answer.userAnswer]}</small><br>
